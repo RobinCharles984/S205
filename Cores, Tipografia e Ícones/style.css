@@ -1,14 +1,33 @@
+:root {
+    /*Tema Inatel*/
+    --inatel-primary: rgb(96, 96, 255);
+    --inatel-secondary: rgb(235, 255, 11);
+    --inatel-accent: rgb(255, 77, 0);
+    
+    /* Tema Dark */
+    --dark-bg: rgb(0, 0, 0);
+    --dark-body: rgb(0, 0, 0);
+    --dark-card: rgb(99, 99, 99);
+    --dark-text: rgb(255, 255, 255);
+
+    /* Cores Base */
+    --background: rgb(255, 255, 255);
+    --body-bg: rgb(255, 255, 255);
+    --text-color: rgb(255, 255, 255);
+    --card-bg: rgb(0, 0, 0);
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
+}   
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f5f5f5;
+    background-color: var(--body-bg);
+    color: var(--text-color);
     min-height: 100vh;
     padding: 16px;
 }
@@ -22,7 +41,7 @@ body {
 .container {
     width: 100%;
     max-width: 480px;
-    background: white;
+    background: var(--background);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -33,7 +52,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgb(96, 96, 255);
+    background: var(--card-bg);
     padding: 16px;
     border-radius: 8px;
 }
@@ -47,20 +66,20 @@ body {
     border-radius: 8px;
 }
 .mensagens {
-    background: rgb(96, 96, 255);
+    background: var(--card-bg);
 }
 .aulas {
-    background: rgb(96, 96, 255);
+    background: var(--card-bg);
     display: grid;
     grid-template-columns: 1fr;
     gap: 16px;
 }
 .noticias {
-    background: rgb(96, 96, 255);
+    background: var(--card-bg);
 }
 .card {
     padding: 16px;
-    background: white;
+    background: var(--card-bg);
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
 }
@@ -77,15 +96,16 @@ body {
 .theme-menu {
     display: none;
     position: flex;
-    background-color: rgb(96, 96, 255);
+    background-color: var(--card-bg);
     border-radius: 8px;
     padding: 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 .theme-menu button {
     display: block;
     margin: 5px 0;
-    background: rgb(255, 255, 255);
+    background: var(--background);
     border-radius: 5px;
     text-align: center;
     border: none;
@@ -96,4 +116,17 @@ body {
     .aulas {
         grid-template-columns: repeat(2, 1fr);
     }
+}
+/* Transição Tema Dark */
+body[data-theme="dark"] {
+    --background: var(--dark-bg);
+    --text-color: var(--dark-text);
+    --card-bg: var(--dark-card);
+}
+
+/* Transição Tema Inatel */
+body[data-theme="inatel"] {
+    --background: var(--inatel-primary);
+    --text-color: var(--text-color);
+    --card-bg: var(--dark-text);
 }

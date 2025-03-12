@@ -28,6 +28,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-function settingsButton(){
-    
+function changeTheme(theme) {
+    document.body.setAttribute('data-theme', theme);
+    localStorage.setItem('inatelTheme', theme);
+    toggleThemeMenu();
+}
+
+// Carregar tema salvo
+window.onload = () => {
+    const savedTheme = localStorage.getItem('inatelTheme') || 'inatel';
+    document.body.setAttribute('data-theme', savedTheme);
 }
