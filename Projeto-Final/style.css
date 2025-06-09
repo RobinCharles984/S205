@@ -1,0 +1,290 @@
+:root {
+    /*Tema Inatel*/
+    --inatel-primary: rgb(96, 96, 255);
+    --inatel-secondary: rgb(235, 255, 11);
+    --inatel-accent: rgb(255, 77, 0);
+    
+    /* Tema Dark */
+    --dark-bg: #121212;
+    --dark-body: #121212;
+    --dark-card: #1e1e1e;
+    --dark-text: #ffffff;
+
+    /* Cores Base */
+    --background: rgb(230, 230, 230);
+    --body-bg: rgb(230, 230, 230);
+    --text-color: #000000;
+    --card-bg: #ffffff;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arimo', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}   
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    min-height: 100vh;
+    padding: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+h3 {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--text-color);
+    padding: 5px 5px 10px 5px;
+}
+  
+p {
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--text-color);
+    line-height: 1.5;
+    padding: 0 5px 5px 5px;
+}
+
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card {
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    background: var(--card-bg);
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+}
+
+.info {
+    padding: 10px 0;
+}
+
+.icon {
+    font-size: 15px;
+    margin-left: 5px;
+    margin-right: 2px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#prevBtn { left: 10px; }
+#nextBtn { right: 10px; }  
+.svg_logo_inatel{
+    width: 120px;
+    fill: var(--text-color);
+}
+.container {
+    width: 100%;
+    max-width: 480px;
+    background: var(--background);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 12px;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--card-bg);
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+.mensagens, .aulas, .noticias {
+    padding: 16px;
+    border-radius: 8px;
+    background: var(--card-bg);
+}
+.mensagens .card {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: var(--background);
+}
+
+aulas-component {
+    display: contents;
+}
+.noticias h2 {
+    font-size: 18px;
+    font-weight: 700;
+}
+.theme-menu {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+.theme-menu button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px 12px;
+    background: var(--background);
+    border-radius: 5px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    position: relative;
+    font-size: 14px;
+}
+/* Transição Tema Dark */
+body[data-theme="dark"] {
+    --background: var(--dark-bg);
+    --text-color: var(--dark-text);
+    --card-bg: var(--dark-card);
+    --body-bg: var(--dark-body);
+}
+
+/* Transição Tema Inatel */
+body[data-theme="inatel"] {
+    --background: var(--inatel-primary);
+    --text-color: #FFF;
+    --card-bg: #FFF;
+}
+body[data-theme="inatel"] .svg_logo_inatel {
+    fill: var(--inatel-primary);
+}
+body[data-theme="inatel"] p,
+body[data-theme="inatel"] h3,
+body[data-theme="inatel"] .noticias h2 {
+    color: #000;
+}
+body[data-theme="inatel"] .mensagens p,
+body[data-theme="inatel"] .header .material-symbols-outlined {
+    color: var(--inatel-primary);
+}
+
+/* --- Estilos da Nova Funcionalidade --- */
+.price-tag {
+    font-size: 18px;
+    font-weight: bold;
+    color: #27ae60;
+    margin: 10px 5px;
+}
+.buy-button {
+    display: block;
+    width: calc(100% - 10px);
+    padding: 12px;
+    margin: 10px 5px 5px 5px;
+    background-color: var(--inatel-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.buy-button:hover {
+    background-color: #0056b3;
+}
+body[data-theme="dark"] .buy-button {
+    background-color: var(--inatel-accent);
+}
+body[data-theme="dark"] .price-tag {
+    color: var(--inatel-secondary);
+}
+
+/* Estilos do Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1001; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+}
+.modal-content {
+    background-color: #fefefe;
+    color: #000;
+    margin: 40% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.modal-content h4 {
+    margin-bottom: 15px;
+}
+.modal-content p {
+    color: #333;
+    font-size: 14px;
+}
+.modal-button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 15px 5px 0 5px;
+}
+.confirm-btn {
+    background-color: #28a745;
+    color: white;
+}
+.cancel-btn {
+    background-color: #dc3545;
+    color: white;
+}
